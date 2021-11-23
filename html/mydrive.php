@@ -11,14 +11,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@100;200;300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="../public/assets/dist/css/main.min.css">
+    <link rel="stylesheet" href="../dist/css/main.min.css">
     <title>UserDrive</title>
 </head>
 
 <body>
     <header class="lign-1">
         <div class="logo">
-            <img class="logo_pic mr-1 ml-1" src="../public/assets/images/logo.svg" alt="logo">
+            <img class="logo_pic mr-1 ml-1" src="../images/logo.svg" alt="logo">
             <h1 class="heading-2 mr-3">MyDrive</h1>
         </div>
         <form action="">
@@ -41,57 +41,57 @@
             <div class="userdrive_data_storage p-3">
 
                 <div class="userdrive_data_storage_container p-1">
-                    <img class="userdrive_data_storage_container_icon" src="../public/assets/images/icon/folder.png"
+                    <img class="userdrive_data_storage_container_icon" src="../images/icon/folder.png"
                         alt="folder">
                     <p class="userdrive_data_storage_container_name texting-2">secret</p>
                 </div>
                 <div class="userdrive_data_storage_container p-1">
-                    <img class="userdrive_data_storage_container_icon" src="../public/assets/images/icon/jpg.png"
+                    <img class="userdrive_data_storage_container_icon" src="../images/icon/jpg.png"
                         alt="jpg">
                     <p class="userdrive_data_storage_container_name texting-2">jpg</p>
                 </div>
                 <div class="userdrive_data_storage_container p-1">
-                    <img class="userdrive_data_storage_container_icon" src="../public/assets/images/icon/png.png"
+                    <img class="userdrive_data_storage_container_icon" src="../images/icon/png.png"
                         alt="png">
                     <p class="userdrive_data_storage_container_name texting-2">png</p>
                 </div>
                 <div class="userdrive_data_storage_container p-1">
-                    <img class="userdrive_data_storage_container_icon" src="../public/assets/images/icon/gif.png"
+                    <img class="userdrive_data_storage_container_icon" src="../images/icon/gif.png"
                         alt="gif">
                     <p class="userdrive_data_storage_container_name texting-2">gif</p>
                 </div>
                 <div class="userdrive_data_storage_container p-1">
-                    <img class="userdrive_data_storage_container_icon" src="../public/assets/images/icon/docx.png"
+                    <img class="userdrive_data_storage_container_icon" src="../images/icon/docx.png"
                         alt="docx">
                     <p class="userdrive_data_storage_container_name texting-2">word</p>
                 </div>
                 <div class="userdrive_data_storage_container p-1">
-                    <img class="userdrive_data_storage_container_icon" src="../public/assets/images/icon/xlsx.png"
+                    <img class="userdrive_data_storage_container_icon" src="../images/icon/xlsx.png"
                         alt="xlsx">
                     <p class="userdrive_data_storage_container_name texting-2">excel</p>
                 </div>
                 <div class="userdrive_data_storage_container p-1">
-                    <img class="userdrive_data_storage_container_icon" src="../public/assets/images/icon/pptx.png"
+                    <img class="userdrive_data_storage_container_icon" src="../images/icon/pptx.png"
                         alt="pptx">
                     <p class="userdrive_data_storage_container_name texting-2">powerpoint</p>
                 </div>
                 <div class="userdrive_data_storage_container p-1">
-                    <img class="userdrive_data_storage_container_icon" src="../public/assets/images/icon/pdf.png"
+                    <img class="userdrive_data_storage_container_icon" src="../images/icon/pdf.png"
                         alt="pdf">
                     <p class="userdrive_data_storage_container_name texting-2">pdf</p>
                 </div>
                 <div class="userdrive_data_storage_container p-1">
-                    <img class="userdrive_data_storage_container_icon" src="../public/assets/images/icon/txt.png"
+                    <img class="userdrive_data_storage_container_icon" src="../images/icon/txt.png"
                         alt="txt">
                     <p class="userdrive_data_storage_container_name texting-2">texte</p>
                 </div>
                 <div class="userdrive_data_storage_container p-1">
-                    <img class="userdrive_data_storage_container_icon" src="../public/assets/images/icon/mp3.png"
+                    <img class="userdrive_data_storage_container_icon" src="../images/icon/mp3.png"
                         alt="mp3">
                     <p class="userdrive_data_storage_container_name texting-2">musique la légende des oiseaux</p>
                 </div>
                 <div class="userdrive_data_storage_container p-1">
-                    <img class="userdrive_data_storage_container_icon" src="../public/assets/images/icon/avi.png"
+                    <img class="userdrive_data_storage_container_icon" src="../images/icon/avi.png"
                         alt="avi">
                     <p class="userdrive_data_storage_container_name texting-2">vidéo</p>
                 </div>
