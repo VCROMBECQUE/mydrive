@@ -5,24 +5,24 @@
   // grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, min-content);
 
-  &_guest {
-    grid-column: 1/-1;
-    grid-row: 2/-1;
+  // &_guest {
+  //   grid-column: 1/-1;
+  //   grid-row: 2/-1;
 
-    background-color: $color-secondary;
-    border-radius: 25px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  //   background-color: $color-secondary;
+  //   border-radius: 25px;
+  //   display: flex;
+  //   flex-direction: column;
+  //   align-items: center;
 
-    &_loginbtn {
-      margin-top: 1rem;
-      padding: 1rem 2rem;
-      background-color: white;
-      border-radius: 25px;
-      border: $color-primary 2px solid;
-    }
-  }
+  //   &_loginbtn {
+  //     margin-top: 1rem;
+  //     padding: 1rem 2rem;
+  //     background-color: white;
+  //     border-radius: 25px;
+  //     border: $color-primary 2px solid;
+  //   }
+  // }
 
   // &_subscribe {
   //   background-color: $color-secondary;

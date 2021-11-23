@@ -3,11 +3,10 @@ $color-secondary: rgba(0,0,0,0.05);
 $color-gray: rgb(97, 97, 97);
 $color-light-gray: rgb(220, 220, 220);
 
-
-$font-main: "Arial", sans-serif;
+$font-main: "Heebo", sans-serif;
 
 $s-tablette: 50em; // 800px;
-$s-phone: 27.5em; //
+$s-phone: 27.5em; // ~480px
 
 html {
   font-size: 55%;
