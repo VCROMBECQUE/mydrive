@@ -20,5 +20,6 @@ $user_info = $query->fetch();
 if($user_info == null){
     header('Location: ../html/connexion.html?error="connexion"');
 }
-
-header('Location: ../html/mydrive.php?user='.$user_info['username']);
+else {
+    header('Location: ../html/mydrive.php?user='.$user_info['username']);
+}
