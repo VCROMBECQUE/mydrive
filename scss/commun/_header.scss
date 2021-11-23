@@ -1,0 +1,54 @@
+header {
+  height: 10rem;
+  grid-column: 1/-1;
+  display: grid;
+  align-items: center;
+  background-color: $color-secondary;
+  grid-template-columns: 1fr repeat(12, 1fr) 1fr;
+
+  .logo {
+    display: flex;
+    align-items: center;
+    &_pic {
+      height: 5rem;
+      width: 5rem;
+    }
+  }
+
+  > h2 {
+    grid-column: 3/-3;
+    text-align: center;
+  }
+
+  > form {
+    grid-column: 3/-3;
+    width: 70%;
+    max-width: 80rem;
+    height: 4.5rem;
+    border: 0.5px solid $color-primary;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    background: white;
+
+    > input {
+      height: 100%;
+      width: 100%;
+      background-color: transparent;
+      border: none;
+      outline: none;
+      &::placeholder {
+        color: $color-primary;
+      }
+    }
+
+    > i {
+      text-align: end;
+    }
+  }
+
+  .signinicon {
+    grid-column: span 1 / -1;
+    text-align: right;
+  }
+}

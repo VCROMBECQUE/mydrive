@@ -1,0 +1,16 @@
+::-webkit-scrollbar {
+    width: 0.8rem;
+    background-color: $color-light-gray;
+}
+::-webkit-scrollbar-thumb {
+    background: $color-gray;
+}
+
+.scroller{
+    scrollbar-color: $color-gray $color-light-gray;
+    scrollbar-width: thin;
+}
+
+.d-none{
+    display: none !important;
+}

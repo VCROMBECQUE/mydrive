@@ -1,0 +1,32 @@
+$color-primary: rgba(0, 0, 0, 0.72);
+$color-secondary: rgba(0,0,0,0.05);
+$color-gray: rgb(97, 97, 97);
+$color-light-gray: rgb(220, 220, 220);
+
+
+$font-main: "Arial", sans-serif;
+
+$s-tablette: 50em; // 800px;
+$s-phone: 27.5em; //
+
+html {
+  font-size: 55%;
+  box-sizing: border-box;
+  
+  @media screen and (max-width: $s-tablette) {
+    font-size: 45%;
+  }
+
+  @media screen and (max-width: $s-phone) {
+    font-size: 40%;
+    header{
+      display: none;
+    }
+  }
+}
+
+body {
+  display: grid;
+  grid-template-columns: minmax(1rem, 1fr) repeat(12, minmax(min-content, 9.5rem)) minmax(1rem, 1fr);
+}
+

@@ -1,0 +1,93 @@
+%heading {
+    font-family: $font-main;
+    font-weight: 300;
+    text-decoration: none;
+    color: $color-primary;
+  }
+
+%texting{
+  font-family: $font-main;
+  font-weight: 300;
+  text-decoration: none;
+  color: $color-primary;
+}
+
+.heading-1 {
+  @extend %heading;
+  font-weight: 600;
+  font-size: 3rem;
+}
+
+.heading-2 {
+  @extend %heading;
+  font-weight: 400;
+  font-size: 2.5rem;
+}
+
+.texting-1{
+  @extend %texting;
+  font-size: 1.8rem;
+}
+
+.texting-2{
+  @extend %texting;
+  font-size: 1.6rem;
+}
+
+.icon-1{
+  font-size: 2.5rem;
+  color: $color-primary;
+}
+
+.icon-2{
+  font-size: 2.2rem;
+  color: $color-primary;
+}
+
+.lign-1 {
+  border-bottom: 0.1px $color-light-gray solid;
+}
+
+.lign-2{
+  border-right: 0.1px $color-light-gray solid;
+}
+
+.m-1{
+  margin: 1rem;
+}
+
+.mr-1{
+  margin-right: 1rem;
+}
+
+.ml-1{
+  margin-left: 1rem;
+}
+
+.mb-1{
+  margin-bottom: 1rem;
+}
+
+.mr-3{
+  margin-right: 3rem;
+}
+
+.ml-3{
+  margin-left: 3rem;
+}
+
+.mt-3{
+  margin-top: 3rem;
+}
+
+.p-1{
+  padding: 1rem;
+}
+
+.p-2{
+  padding: 2rem;
+}
+
+.p-3{
+  padding: 2rem;
+}
