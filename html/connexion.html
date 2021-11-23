@@ -23,7 +23,9 @@
             <h1 class="heading-2 mr-3">MyDrive</h1>
         </div>
         <h2 class="heading-1">Bienvenue sur MyDrive</h2>
-        <i class="fas fa-user icon-1 signinicon ml-1 mr-3"></i>
+        <div class="profil ml-1 mr-3">
+            <i class="fas fa-user icon-1 signinicon ml-1"></i>
+        </div>
     </header>
     <main class="connexion mt-3">
 
@@ -46,9 +48,9 @@
 
         <div class="connexion_login m-1 p-2">
             <p class="heading-2">Se connecter</p><br>
-            <form class="connexion_login_form" action="">
-                <input class="connexion_login_form_box m-1" type="text" placeholder="Nom d'utilisateur ou E-mail" required>
-                <input class="connexion_login_form_box m-1" type="text" placeholder="Mot de passe" required>
+            <form class="connexion_login_form" action="../php/connexion.php" method="post">
+                <input class="connexion_login_form_box m-1" name="user" type="text" placeholder="Nom d'utilisateur ou E-mail" required>
+                <input class="connexion_login_form_box m-1" name="password" type="text" placeholder="Mot de passe" required>
                 <a class="connexion_login_form_forgot texting-2 m-1" href="">Mot de passe oublié ?</a>
                 <button class="connexion_login_form_loginbtn texting-2">Connexion</button>
             </form>

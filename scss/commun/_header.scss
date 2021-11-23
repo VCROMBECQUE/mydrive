@@ -46,9 +46,15 @@ header {
       text-align: end;
     }
   }
+  .profil{
+    grid-column: span 1 / -1;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
 
   .signinicon {
-    grid-column: span 1 / -1;
     text-align: right;
   }
 }

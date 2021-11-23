@@ -251,8 +251,14 @@ header > form > i {
   text-align: end;
 }
 
-header .signinicon {
+header .profil {
   grid-column: span 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+header .signinicon {
   text-align: right;
 }
 
