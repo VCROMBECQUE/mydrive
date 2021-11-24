@@ -1,6 +1,5 @@
 <?php
-
-if (isset($_GET['user']) && !empty($_GET['user'])) {
+if (isset($_GET['user']) && !empty($_GET['user']) && isset($_GET['id']) && !empty($_GET['id']) && $_GET['id'] == "278d068a-3d2c-4e78-9953-38cc906fa8e4") {
     $user = $_GET['user'];
 } else {
     header("Location: ./404.php?error=nouser");
