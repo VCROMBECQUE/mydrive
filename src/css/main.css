@@ -157,6 +157,10 @@ body {
   margin-bottom: 1rem;
 }
 
+.mb-2 {
+  margin-bottom: 2rem;
+}
+
 .mr-3 {
   margin-right: 3rem;
 }
@@ -197,6 +201,59 @@ body {
 
 .d-none {
   display: none !important;
+}
+
+.inputfile {
+  opacity: 0;
+  position: absolute;
+}
+
+#restart {
+  cursor: pointer;
+}
+
+#addnewfolder {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -9em;
+  /*set to a negative number 1/2 of your height*/
+  margin-left: -15em;
+  /*set to a negative number 1/2 of your width*/
+  border: 1px solid rgba(0, 0, 0, 0.72);
+  background-color: gainsboro;
+  border-radius: 25px;
+}
+
+#addnewfolder > i {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.2rem;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+#addnewfolder > input {
+  border-radius: 25px;
+  border: 1px solid rgba(0, 0, 0, 0.72);
+}
+
+#addnewfolder > button {
+  width: min-content;
+  padding: 1rem 2rem;
+  background-color: white;
+  border-radius: 25px;
+  border: 0.5px solid rgba(0, 0, 0, 0.72);
+}
+
+#addnewfolder > button:hover {
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.72);
+  color: white;
 }
 
 header {
@@ -319,17 +376,42 @@ header .signinicon {
 }
 
 .userdrive_menu_btn {
+  text-align: center;
   min-width: 12rem;
   height: min-content;
   background-color: white;
-  padding: 1rem 2rem;
+  padding: 1.5rem 2rem;
   border-radius: 25px;
   border: 0.5px solid rgba(0, 0, 0, 0.72);
+  display: flex;
+  align-items: center;
 }
 
-.userdrive_ariane {
+.userdrive_menu_btn:hover {
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.72);
+}
+
+.userdrive_menu_btn:hover > p {
+  color: white;
+}
+
+.userdrive_menu_btn > img {
+  width: 20px;
+  height: 20px;
+}
+
+.userdrive_data_ariane {
   grid-column: 1/-1;
-  height: 10rem;
+  display: flex;
+}
+
+.userdrive_data_ariane > p {
+  cursor: pointer;
+}
+
+.userdrive_data_ariane > p > i {
+  cursor: default;
 }
 
 .userdrive_data_storage {
@@ -346,9 +428,11 @@ header .signinicon {
 .userdrive_data_storage_container_icon {
   width: 80px;
   height: 80px;
+  cursor: pointer;
 }
 
 .userdrive_data_storage_container_name {
   text-align: center;
   width: 80px;
+  cursor: pointer;
 }

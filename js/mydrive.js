@@ -1,28 +1,37 @@
 document.addEventListener("load", getData(null));
 
-async function getData(folder) {
-  let newfolder = { path: folder };
+// document.addEventListener("change", getFiles())
 
+
+async function getData(folder) {
   const options = {
     method: "POST",
-    body: JSON.stringify(newfolder),
+    body: JSON.stringify(folder),
   };
-
-  console.log(JSON.stringify(newfolder));
 
   await fetch("../php/getdata.php", options)
     .then((response) => {
       response.json().then((data) => {
         let storage = document.querySelector("#storage");
         let files = "";
+
+        let ariane = document.querySelector("#ariane");
+
+        let current = "";
+
         data.forEach((file) => {
-          files += `<div id="${file.name}" class="userdrive_data_storage_container p-1" onclick="changeDir()">
-                        <img class="userdrive_data_storage_container_icon" src="../images/icon/${file.type}.png" alt="${file.type}">
-                        <p class="userdrive_data_storage_container_name texting-2">${file.name}</p>
-                    </div>`;
+          if (file.type != "current") {
+            files += `<div id="${current}${file.name}" class="userdrive_data_storage_container p-1" ondblclick="changeDir()">
+                          <img class="userdrive_data_storage_container_icon" src="../images/icon/${file.type}.png" alt="${file.type}">
+                          <p class="userdrive_data_storage_container_name texting-2">${file.name}</p>
+                      </div>`;
+          } else {
+            current = file.name;
+          }
         });
-        // console.log(files);
+
         storage.innerHTML = files;
+        ariane.innerHTML = getAriane(current);
       });
     })
     .catch((error) => console.log("erreur fetch", error));
@@ -32,45 +41,52 @@ function changeDir() {
   let elem = window.event.target;
 
   elem.tagName != "DIV" ? (elem = elem.parentNode.id) : (elem = elem.id);
-  
-//   console.log("elem : " + elem);
+
   getData(elem);
 }
 
-/* <div class="userdrive_data_storage_container p-1">
-<img class="userdrive_data_storage_container_icon" src="../images/icon/folder.png" alt="folder">
-<p class="userdrive_data_storage_container_name texting-2">secret</p>
-</div> */
+function getAriane(path) {
+  path = `MyDrive/${path}`;
+  let splitpath = path.split("/");
 
-// prefix = ""
+  let ariane = "";
+  let id = "";
+  splitpath.forEach((element) => {
+    if(element != "")
+    {
+      if(element != "MyDrive") {
+        id += `/${element}`;
+      }
+      ariane += `<p id="${id}" class="ml-1"><i class="fas fa-chevron-right"></i> <span onclick="changeDir()">${element}</span> </p>`;
+    }
+  });
 
-// axios.post("http://localhost/list.php", {
-//     prefix: "storage/" + prefix
-// })
+  return ariane;
+}
 
-// let data = [
-//     {
-//         name: "secret",
-//         type: "folder",
-//         url: "http://localhost/storage/secret",
-//         size: 1200,
-//     },
-//     {
-//         name: "chaton",
-//         type: "jpg",
-//         url: "http://localhost/storage/chaton.jpg",
-//         size: 1200
-//     },
-//     {
-//         name: "chiot",
-//         type: "png",
-//         url: "http://localhost/storage/chiot.png",
-//         size: 2650
-//     }
-// ]
+function showNewFolder() {
+  let newfolder = document.getElementById("addnewfolder");
+  newfolder.className=="d-none" ? newfolder.classList.remove("d-none") : newfolder.classList.add("d-none");
+}
 
-// let mydrive = document.querySelector("#mydrive")
+async function addNewFolder() {
+  let foldername = document.getElementById("newfoldername").value;
+  let path = document.getElementById("ariane").lastChild.id;
 
-// data.map(f => {
-//     mydrive.innerHTML
-// })
+  const data = {
+    foldername,
+    path,
+  };
+
+  const options = {
+    method: "POST",
+    body: JSON.stringify(data),
+  };
+
+ await fetch("../php/newfolder.php", options)
+    .then(() => {
+      getData(path);
+      showNewFolder();
+    })
+    .catch((error) => console.log("erreur fetch", error));
+}

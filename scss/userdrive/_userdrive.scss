@@ -9,19 +9,44 @@
     justify-content: flex-start;
     align-items: center;
     &_btn {
+      text-align: center;
       min-width: 12rem;
       height: min-content;
       background-color: white;
-      padding: 1rem 2rem;
+      padding: 1.5rem 2rem;
       border-radius: 25px;
       border: 0.5px solid $color-primary;
+
+      display: flex;
+      align-items: center;
+
+      &:hover {
+        cursor: pointer;
+        background-color: $color-primary;
+        > p {
+          color: white;
+        }
+      }
+      
+      > img {
+        width: 20px;
+        height: 20px;
+      }
     }
   }
-  &_ariane {
-    grid-column: 1/-1;
-    height: 10rem;
-  }
+
   &_data {
+    &_ariane {
+      grid-column: 1/-1;
+      display: flex;
+      > p {
+        cursor: pointer;
+        > i {
+          cursor: default;
+        }
+      }
+    }
+
     &_storage {
       display: grid;
       grid-template-columns: repeat(auto-fit, 12rem);
@@ -34,11 +59,13 @@
         &_icon {
           width: 80px;
           height: 80px;
+          cursor: pointer;
         }
 
         &_name {
           text-align: center;
           width: 80px;
+          cursor: pointer;
         }
       }
     }

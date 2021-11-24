@@ -1,8 +1,11 @@
 <?php
-// $test = unserialize(urldecode($_POST));
 
-if (isset($test) && !empty($test)) {
-    $path = "../storage/" . $test . "/";
+$input = json_decode(file_get_contents('php://input'), true);
+
+if (isset($input) && !empty($input)) {
+
+    $path = "../storage/". $input . "/";
+
 } else {
     $path = "../storage/";
 }
@@ -26,5 +29,7 @@ foreach ($scans as $scan) {
     }
 }
 
+$file = array('name' => substr($path, 11), 'type' => 'current', "url" => "http://localhost/mydrive/" . substr($path, 3));
+array_unshift($files, $file);
 header('Content-Type: application/json');
 echo json_encode($files);
