@@ -28,6 +28,24 @@ document.addEventListener(
   false
 );
 
+function searchFiles() {
+  // find = filetofind =>
+  //           currentfolder =>
+  //               {
+  //                   if (currentfolder.files.indexOf(filetofind)!==-1){ 
+  //                       return true;
+  //                   }
+  //                   else if (currentfolder.subFolders.length !== 0){ 
+  //                       const otherFolders = currentfolder.subFolders.map(find(filetofind)); 
+  //                       const aOrB = (a,b)=>a || b; 
+  //                       const found = otherFolders.reduce(aOrB, false);
+  //                       return found;
+  //                   }else{
+  //                       return false; 
+  //                   }
+  //               };
+}
+
 async function renamedata() {
   let dataren = window.event.target.parentNode.getAttribute('name').split("/");
   let datatoren = dataren[dataren.length - 1];

@@ -1,9 +1,8 @@
 <?php
 
-if(isset($_GET['user'])&&!empty($_GET['user'])) {
+if (isset($_GET['user']) && !empty($_GET['user'])) {
     $user = $_GET['user'];
-}
-else {
+} else {
     header("Location: ./404.php?error=nouser");
 }
 ?>
@@ -29,10 +28,10 @@ else {
             <img class="logo_pic mr-1 ml-3" src="../images/logo.svg" alt="logo">
             <h1 class="heading-2 mr-3" onclick="getData()">MyDrive</h1>
         </div>
-        <form action="">
+        <div class="searchbox">
             <input class="ml-1 mr-1 texting-1" type="text" placeholder="Rechercher sur MyDrive">
-            <button type="submit"><i class="fas fa-search icon-2 mr-1 ml-1"></i></button>
-        </form>
+            <button type="submit" onclick="searchFiles()"><i class="fas fa-search icon-2 mr-1 ml-1"></i></button>
+        </div>
         <div class="profil ml-1 mr-3">
             <p class="texting-2"><?= $user ?></p>
             <i class="fas fa-user icon-1 signinicon ml-1"></i>
@@ -54,7 +53,7 @@ else {
                 <p class="texting-1 ml-1">Nouveau dossier</p>
             </div>
 
-            <input type="file" name="file" id="file" class="inputfile" onchange="addFile()"/>
+            <input type="file" name="file" id="file" class="inputfile" onchange="addFile()" />
             <label for="file">
                 <div class="userdrive_menu_btn mt-3 ml-1 mr-1">
                     <img src="../images/icon/addfile.png" alt="ajouter un fichier">

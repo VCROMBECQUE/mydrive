@@ -315,7 +315,7 @@ header > h2 {
   text-align: center;
 }
 
-header > form {
+header > .searchbox {
   grid-column: 3/-3;
   width: 70%;
   max-width: 80rem;
@@ -327,7 +327,7 @@ header > form {
   background: white;
 }
 
-header > form > input {
+header > .searchbox > input {
   height: 100%;
   width: 100%;
   background-color: transparent;
@@ -335,12 +335,13 @@ header > form > input {
   outline: none;
 }
 
-header > form > input::placeholder {
+header > .searchbox > input::placeholder {
   color: rgba(0, 0, 0, 0.72);
 }
 
-header > form > i {
+header > .searchbox i {
   text-align: end;
+  cursor: pointer;
 }
 
 header .profil {

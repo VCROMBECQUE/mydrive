@@ -20,7 +20,7 @@ header {
     text-align: center;
   }
 
-  > form {
+  > .searchbox {
     grid-column: 3/-3;
     width: 70%;
     max-width: 80rem;
@@ -42,8 +42,9 @@ header {
       }
     }
 
-    > i {
+    i {
       text-align: end;
+      cursor: pointer;
     }
   }
   .profil{
