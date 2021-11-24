@@ -48,7 +48,7 @@ $user = "Eric";
                 <p class="texting-1 ml-1">Nouveau dossier</p>
             </div>
 
-            <input type="file" name="file" id="file" class="inputfile" />
+            <input type="file" name="file" id="file" class="inputfile" onchange="addFile()"/>
             <label for="file">
                 <div class="userdrive_menu_btn mt-3 ml-1 mr-1">
                     <img src="../images/icon/addfile.png" alt="ajouter un fichier">

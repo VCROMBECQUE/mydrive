@@ -22,7 +22,7 @@ foreach ($scans as $scan) {
             array_unshift($files, $file);
         } else if (is_file($path . $scan) && preg_match("#\.(jpg|png|gif|docx|xlsx|pptx|pdf|txt|mp3|avi)$#", strtolower($scan))) {
 
-            $file = array('name' => $scan, 'type' => pathinfo($path . $scan, PATHINFO_EXTENSION), "url" => "http://localhost/mydrive/" . substr($path, 3) . $scan);
+            $file = array('name' => $scan, 'type' => pathinfo($path . $scan, PATHINFO_EXTENSION), "url" => "../" . substr($path, 3) . $scan);
 
             array_push($files, $file);
         }

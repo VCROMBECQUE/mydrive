@@ -1,8 +1,5 @@
 document.addEventListener("load", getData(null));
 
-// document.addEventListener("change", getFiles())
-
-
 async function getData(folder) {
   const options = {
     method: "POST",
@@ -21,7 +18,17 @@ async function getData(folder) {
 
         data.forEach((file) => {
           if (file.type != "current") {
-            files += `<div id="${current}${file.name}" class="userdrive_data_storage_container p-1" ondblclick="changeDir()">
+            
+            let action = "";
+            if(file.type == "folder")
+            {
+              action = "ondblclick=\"changeDir()\")";
+            }
+            else {
+              action = `onclick=\"window.open('${file.url}', '_blank').focus()\"`;
+            }
+
+            files += `<div id="${current}${file.name}" class="userdrive_data_storage_container p-1" ${action}>
                           <img class="userdrive_data_storage_container_icon" src="../images/icon/${file.type}.png" alt="${file.type}">
                           <p class="userdrive_data_storage_container_name texting-2">${file.name}</p>
                       </div>`;
@@ -29,7 +36,6 @@ async function getData(folder) {
             current = file.name;
           }
         });
-
         storage.innerHTML = files;
         ariane.innerHTML = getAriane(current);
       });
@@ -52,9 +58,8 @@ function getAriane(path) {
   let ariane = "";
   let id = "";
   splitpath.forEach((element) => {
-    if(element != "")
-    {
-      if(element != "MyDrive") {
+    if (element != "") {
+      if (element != "MyDrive") {
         id += `/${element}`;
       }
       ariane += `<p id="${id}" class="ml-1"><i class="fas fa-chevron-right"></i> <span onclick="changeDir()">${element}</span> </p>`;
@@ -66,7 +71,9 @@ function getAriane(path) {
 
 function showNewFolder() {
   let newfolder = document.getElementById("addnewfolder");
-  newfolder.className=="d-none" ? newfolder.classList.remove("d-none") : newfolder.classList.add("d-none");
+  newfolder.className == "d-none"
+    ? newfolder.classList.remove("d-none")
+    : newfolder.classList.add("d-none");
 }
 
 async function addNewFolder() {
@@ -83,10 +90,30 @@ async function addNewFolder() {
     body: JSON.stringify(data),
   };
 
- await fetch("../php/newfolder.php", options)
+  await fetch("../php/newfolder.php", options)
     .then(() => {
       getData(path);
       showNewFolder();
+    })
+    .catch((error) => console.log("erreur fetch", error));
+}
+
+async function addFile() {
+  let newfile = document.querySelector("#file").files[0];
+  let path = document.getElementById("ariane").lastChild.id;
+
+  const form_data = new FormData();
+  form_data.append("file", newfile);
+  form_data.append("path", path);
+
+  const options = {
+    method: "POST",
+    body: form_data,
+  };
+
+  await fetch("../php/addfile.php", options)
+    .then(() => {
+      getData(path);
     })
     .catch((error) => console.log("erreur fetch", error));
 }
