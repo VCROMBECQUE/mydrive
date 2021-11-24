@@ -1,5 +1,11 @@
 <?php
-$user = "Eric";
+
+if(isset($_GET['user'])&&!empty($_GET['user'])) {
+    $user = $_GET['user'];
+}
+else {
+    header("Location: ./404.php?error=nouser");
+}
 ?>
 
 <!DOCTYPE html>
@@ -14,7 +20,7 @@ $user = "Eric";
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../dist/css/main.min.css">
-    <title><?= $user . "Drive" ?></title>
+    <title>MyDrive</title>
 </head>
 
 <body>
@@ -77,6 +83,7 @@ $user = "Eric";
 
     </main>
     <script src="../js/mydrive.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 </body>
 
 </html>

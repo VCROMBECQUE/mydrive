@@ -1,3 +1,19 @@
+<?php
+switch ($_GET['error']) {
+    case 'nouser':
+        $msg = "Vous devez vous connecter pour accéder à votre MyDrive.";
+        break;
+
+    case 'connexion':
+        $msg = "Erreur lors de la saisie de votre identifiant et mot de passe.";
+        break;
+
+    default:
+        $msg = "Une erreur inconnu est survenue.";
+        break;
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,7 +30,10 @@
 </head>
 
 <body>
-    <h1 class="heading-1">Erreur de <?= $_GET['error'] ?></h1>
+    <main class="errorbox">
+        <h1 class="heading-2 mb-2"><?= $msg ?></h1>
+        <a class="heading-2" href="./connexion.html">Retour à la page de connexion</a>
+    </main>
 </body>
 
 </html>

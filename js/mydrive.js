@@ -1,5 +1,85 @@
 document.addEventListener("load", getData(null));
 
+var divstorage = document.getElementById("storage");
+
+document.addEventListener(
+  "contextmenu",
+  (e) => {
+    if (
+      window.event.target.className.split(" ")[0] ==
+        "userdrive_data_storage_container" ||
+      window.event.target.parentNode.className.split(" ")[0] ==
+        "userdrive_data_storage_container"
+    ) {
+      var x = e.pageX; 
+      var y = e.pageY; 
+      
+      let link = "";
+      window.event.target.tagName != "div" ? link = window.event.target.parentNode.id : link = window.event.target.id
+
+      e.preventDefault();
+      divstorage.innerHTML += `<div id="submenu" name="${link}" style="top:${y}px;left:${x}px">
+                                  <button type="button" class="texting-1 p-1 m-1" type="button" onclick="renamedata()">Renommer</button>
+                                  <button type="button" class="texting-1 p-1 m-1" type="button" onclick="removedata()">Supprimer</button>
+                                  <button type="button" class="texting-1 p-1 m-1" type="button" onclick="closesubmenu()">Fermer</button>
+                               </div>`;
+    }
+  },
+  false
+);
+
+async function renamedata() {
+  let dataren = window.event.target.parentNode.getAttribute('name').split("/");
+  let datatoren = dataren[dataren.length - 1];
+
+
+  let path = document.getElementById("ariane").lastChild.id;
+  let newname = window.prompt('Entrer le nouveau nom : ');
+
+  const data = {
+    newname,
+    datatoren,
+    path,
+  };
+  console.log(data);
+
+  const options = {
+    method: "POST",
+    body: JSON.stringify(data),
+  };
+
+  await fetch("../php/renamedata.php", options)
+  .then(() => {
+    getData(path);
+  })
+  .catch((error) => console.log("erreur fetch", error));
+}
+
+async function removedata() {
+  let datadel = window.event.target.parentNode.getAttribute('name').split("/");
+  let datatodel = datadel[datadel.length - 1];
+  let path = document.getElementById("ariane").lastChild.id;
+
+  const data = {
+    datatodel,
+    path,
+  };
+
+  const options = {
+    method: "POST",
+    body: JSON.stringify(data),
+  };
+  await fetch("../php/deletedata.php", options)
+  .then(() => {
+    getData(path);
+  })
+  .catch((error) => console.log("erreur fetch", error));
+}
+
+function closesubmenu() {
+  window.event.target.parentNode.remove();
+}
+
 async function getData(folder) {
   const options = {
     method: "POST",
@@ -18,18 +98,21 @@ async function getData(folder) {
 
         data.forEach((file) => {
           if (file.type != "current") {
-            
             let action = "";
-            if(file.type == "folder")
-            {
-              action = "ondblclick=\"changeDir()\")";
+            let sourceimg = `src="../images/icon/${file.type}.png"`;
+
+            if (file.type == "png" || file.type == "jpg") {
+              sourceimg = `src=\"${file.url}\"`;
             }
-            else {
+
+            if (file.type == "folder") {
+              action = 'ondblclick="changeDir()")';
+            } else {
               action = `onclick=\"window.open('${file.url}', '_blank').focus()\"`;
             }
 
             files += `<div id="${current}${file.name}" class="userdrive_data_storage_container p-1" ${action}>
-                          <img class="userdrive_data_storage_container_icon" src="../images/icon/${file.type}.png" alt="${file.type}">
+                          <img class="userdrive_data_storage_container_icon" ${sourceimg} alt="${file.type}">
                           <p class="userdrive_data_storage_container_name texting-2">${file.name}</p>
                       </div>`;
           } else {
@@ -112,8 +195,11 @@ async function addFile() {
   };
 
   await fetch("../php/addfile.php", options)
-    .then(() => {
-      getData(path);
-    })
+    .then((response) => {
+      response.json().then((data) => {
+        getData(path);
+        alert(data);
+        });
+      })
     .catch((error) => console.log("erreur fetch", error));
 }

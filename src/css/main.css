@@ -75,14 +75,25 @@ html {
   html {
     font-size: 45%;
   }
+  html .userdrive_data_storage_container_icon {
+    width: 65px;
+    height: 65px;
+  }
+  html header > form {
+    width: 85%;
+  }
 }
 
 @media screen and (max-width: 27.5em) {
   html {
     font-size: 40%;
   }
-  html header {
-    display: none;
+  html .userdrive_data_storage_container_icon {
+    width: 50px;
+    height: 50px;
+  }
+  html header > form {
+    width: 100%;
   }
 }
 
@@ -251,6 +262,30 @@ body {
 }
 
 #addnewfolder > button:hover {
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.72);
+  color: white;
+}
+
+#submenu {
+  position: absolute;
+  padding: 2rem;
+  border: 1px solid rgba(0, 0, 0, 0.72);
+  background-color: gainsboro;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#submenu > button {
+  padding: 1rem 2rem;
+  background-color: white;
+  border-radius: 25px;
+  border: 0.5px solid rgba(0, 0, 0, 0.72);
+}
+
+#submenu > button:hover {
   cursor: pointer;
   background-color: rgba(0, 0, 0, 0.72);
   color: white;
@@ -429,10 +464,48 @@ header .signinicon {
   width: 80px;
   height: 80px;
   cursor: pointer;
+  object-fit: contain;
 }
 
 .userdrive_data_storage_container_name {
   text-align: center;
+  word-break: break-all;
+  overflow-y: hidden;
+  max-height: 3.2rem;
   width: 80px;
   cursor: pointer;
+}
+
+.errorbox {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  padding: 3rem;
+  display: grid;
+  align-items: center;
+  text-align: center;
+  width: 50rem;
+  height: 20rem;
+  margin-top: -10rem;
+  /*set to a negative number 1/2 of your height*/
+  margin-left: -25rem;
+  /*set to a negative number 1/2 of your width*/
+  border: 1px solid rgba(0, 0, 0, 0.72);
+  background-color: gainsboro;
+  border-radius: 25px;
+}
+
+.errorbox > a {
+  width: max-content;
+  padding: 1rem 2rem;
+  background-color: white;
+  border-radius: 25px;
+  border: 0.5px solid rgba(0, 0, 0, 0.72);
+  margin: auto;
+}
+
+.errorbox > a:hover {
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.72);
+  color: white;
 }

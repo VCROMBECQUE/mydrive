@@ -14,12 +14,23 @@ html {
   
   @media screen and (max-width: $s-tablette) {
     font-size: 45%;
+    .userdrive_data_storage_container_icon {
+      width: 65px;
+      height: 65px;
+    }
+    header>form{
+      width: 85%;
+    }
   }
 
   @media screen and (max-width: $s-phone) {
     font-size: 40%;
-    header{
-      display: none;
+    .userdrive_data_storage_container_icon {
+      width: 50px;
+      height: 50px;
+    }
+    header>form{
+      width: 100%;
     }
   }
 }

@@ -27,7 +27,7 @@
           color: white;
         }
       }
-      
+
       > img {
         width: 20px;
         height: 20px;
@@ -60,10 +60,14 @@
           width: 80px;
           height: 80px;
           cursor: pointer;
+          object-fit: contain;
         }
 
         &_name {
           text-align: center;
+          word-break: break-all;
+          overflow-y: hidden;
+          max-height: 3.2rem;
           width: 80px;
           cursor: pointer;
         }
